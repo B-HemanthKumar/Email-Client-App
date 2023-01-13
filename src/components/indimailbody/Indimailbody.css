@@ -1,0 +1,26 @@
+.container{
+    margin: 10px 0px 0px 30px ;
+    border: 1px solid  black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    /* height: 500px; */
+    /* width: 500px; */
+}
+
+.dtfav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    color: gray;
+}
+
+.fav1{
+    color: #ffffff;
+    background-color: hsl(347, 76%, 57%);
+    border: 1px solid #000000;
+    border-radius: 100px;
+    padding: 05px;
+    cursor: pointer;
+}
