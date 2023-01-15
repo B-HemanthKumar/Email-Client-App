@@ -1,15 +1,15 @@
 import React from "react";
-import Filter from "./components/filter/Filter";
-import Allmails from "./components/pages/Allmails";
-import Mailbody from "./components/pages/Mailbody";
+import { Route, Routes } from "react-router-dom";
+import Mailbody from "./pages/mail-body/Mailbody";
 
 function App() {
   return (
-    <>
-      {/* <Filter /> */}
-      {/* <Allmails /> */}
-      <Mailbody />
-    </>
+    <Routes>
+      <Route path="/" element={<Mailbody />} />
+      <Route path="/unread-mails" element={<Mailbody />} />
+      <Route path="/readed-mails" element={<Mailbody />} />
+      <Route path="/favorite-mails" element={<Mailbody />} />
+    </Routes>
   );
 }
 

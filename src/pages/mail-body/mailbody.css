@@ -1,0 +1,15 @@
+.mailbody {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  grid-area: email;
+}
+
+.mail-body-width {
+  width: 50%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: "email emailDisplay";
+}

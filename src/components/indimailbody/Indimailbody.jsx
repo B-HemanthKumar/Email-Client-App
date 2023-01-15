@@ -1,25 +1,54 @@
-import React from 'react'
-import "./Indimailbody.css"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import parse from "html-react-parser";
+import {
+  setFavMails,
+  setReadedMail,
+  setMails,
+} from "../../redux-store/slice/emailSlice";
+import "./Indimailbody.css";
 
 export default function Indimailbody() {
+  const { emailBody, email, readedMails, favEmails, emails } = useSelector(
+    (state) => state.email
+  );
+  const dispatch = useDispatch();
+  const date = new Date(email?.date)?.toLocaleDateString();
+  const time = new Date(email?.date)?.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+
   return (
     <>
-        <div className='container'>
-            <h3>Lorem</h3>
-            
-            <div className='dtfav'>
-            <span> Date&time</span>
-            <span className='fav1'>Mark as Favorite</span>
-            </div>
-
-            <p>Commodo nulla fugiaMagna do ullamco Lorem laboris. Cupidatat excepteur consectetur sint aliquip eu amet ea pariatur culpa velit adipisicing. Qui dolore nostrud mollit quis deserunt fugiat. Aliquip veniam magna labore sit tempor sit. Occaecat duis tempor dolore sit irure duis labore sit ullamco cillum do labore magna laborum.
-Enim ipsum ea adipisicing irure mollit enim veniam ipsum culpa adipisicing ad ut nulla. Non anim fugiat est enim sit sit ut ipsum anim do esse incididunt ut anim. Lorem officia irure voluptate non sint ipsum aute ipsum. Quis reprehenderit incididunt enim dolor velit nostrud minim amet proident enim anim sunt adipisicing. Esse magna nisi do sunt proident. Tempor aute sint sit voluptate. Nisi amet quis reprehenderit amet eiusmod nulla excepteur ea.
-Ut ipsum mollit deserunt quis esse deserunt consequat do ea cillum officia. Excepteur ad eu sunt eiusmod fugiat qui velit in mollit magna pariatur. Tempor pariatur mollit velit culpa labore exercitation magna duis laboris occaecat cupidatat consectetur minim. Aliqua amet id voluptate adipisicing fugiat nostrud consectetur aliqua duis nostrud.
-Duis dolor culpa adipisicing adipisicing aliquip. 
-Nostrud officia magna pariatur aliquip excepteur cupidatat nisi sunt laborum sint ad elit ex. Laborum sunt reprehenderit aute occaecat eu reprehenderit aliquip consequat aute exercitation amet magna adipisicing veniam. In dolor consequat nulla irure. In quis ex veniam consectetur aliquip eu qui aute incididunt deserunt ut. Ullamco laboris irure aliqua anim.t non ullamco velit. Cillum in ad culpa ullamco commodo nisi quis. Cillum dolor adipisicing pariatur aliquip magna nisi veniam velit fugiat aliquip elit cupidatat.
-            </p>
+      <div className="container">
+        <h3>{email.subject}</h3>
+        <div className="dtfav">
+          <p>
+            {date} {time}
+          </p>
+          <span
+            className="fav1"
+            onClick={() => {
+              const filteredReadedMails = readedMails.filter(
+                (mail) => mail.id !== email.id
+              );
+              const filteredMails = emails.filter(
+                (mail) => mail.id !== email.id
+              );
+              dispatch(setReadedMail(filteredReadedMails));
+              dispatch(setMails(filteredMails));
+              if (!favEmails.find((favemail) => favemail.id === email.id)) {
+                dispatch(setFavMails(email));
+              }
+            }}
+          >
+            Mark as Favorite
+          </span>
         </div>
+        {emailBody?.body && parse(emailBody?.body)}
+      </div>
     </>
-  )
+  );
 }
-

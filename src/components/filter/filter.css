@@ -1,20 +1,14 @@
-
-.filter{
-    margin: 0px 0px 20px 10px ;
-    /* padding-left: 10px; */
-    font-weight: 500;
-    color: black;
+.filter {
+  margin: 0px 0px 20px 10px;
+  font-weight: 500;
+  color: black;
 }
 
-.opt{
-    color: black;
-    padding: 0px 15px ;
-    /* border: 1px solid #cfd2dc; */
-}
-
-.opt:hover{
-    background-color: #cfd2dc;
-    border: 1px solid #cfd2dc;
-    border-radius: 10px;
-    cursor: pointer;
+.opt {
+  color: black;
+  padding: 0px 15px;
+  background-color: #cfd2dc;
+  border: 1px solid #cfd2dc;
+  border-radius: 10px;
+  cursor: pointer;
 }
