@@ -1,7 +1,9 @@
 .filter {
-  margin: 0px 0px 20px 10px;
+  padding: 4px 12px;
   font-weight: 500;
   color: black;
+  display: flex;
+  gap: 1rem;
 }
 
 .opt {
@@ -11,4 +13,9 @@
   border: 1px solid #cfd2dc;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.links {
+  text-decoration: none;
+  color: black;
 }

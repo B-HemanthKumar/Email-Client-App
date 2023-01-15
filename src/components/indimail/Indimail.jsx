@@ -8,6 +8,7 @@ import {
 } from "../../redux-store/slice/emailSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./indimail.css";
+import Avatar from "../avatar/Avatar";
 
 const Indimail = ({ email, fav }) => {
   const dispatch = useDispatch();
@@ -38,23 +39,26 @@ const Indimail = ({ email, fav }) => {
           }
         }}
       >
-        <span className="from">
-          From: {email.from.name} {"<"}
-          {email.from.email}
-          {">"}
-        </span>
-        <span className="subject"> Subject: {email.subject}</span>
-        <span className="des">{email.short_description}</span>
-        <div className={`${fav ? "flex-container" : ""}`}>
-          <span className="dt">
-            {new Date(email.date).toLocaleDateString()}{" "}
-            {new Date(email.date).toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            })}
+        <Avatar email={email} />
+        <div className="flex">
+          <span className="from">
+            From: {email.from.name} {"<"}
+            {email.from.email}
+            {">"}
           </span>
-          {fav && <span className="red">Favorite</span>}
+          <span className="subject"> Subject: {email.subject}</span>
+          <span className="des">{email.short_description}</span>
+          <div className={`${fav ? "flex-container" : ""}`}>
+            <span className="dt">
+              {new Date(email.date).toLocaleDateString()}{" "}
+              {new Date(email.date).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+            </span>
+            {fav && <span className="red">Favorite</span>}
+          </div>
         </div>
       </div>
     </>

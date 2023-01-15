@@ -7,6 +7,12 @@
   grid-area: emailDisplay;
 }
 
+.flex-indi {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .dtfav {
   display: flex;
   flex-wrap: wrap;

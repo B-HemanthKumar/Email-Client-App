@@ -14,22 +14,22 @@ export default function Filter() {
     <div className="filter">
       <span className="filter"> FilterBy: </span>
       <NavLink
-        to="/unread-mails"
-        className={({ isActive }) => (isActive ? "opt" : "")}
+        to="/"
+        className={({ isActive }) => (isActive ? "opt links" : "links")}
         onClick={() => onChangePath()}
       >
         Unread
       </NavLink>
       <NavLink
         to="/readed-mails"
-        className={({ isActive }) => (isActive ? "opt" : "")}
+        className={({ isActive }) => (isActive ? "opt links" : "links")}
         onClick={() => onChangePath()}
       >
         Read
       </NavLink>
       <NavLink
         to="/favorite-mails"
-        className={({ isActive }) => (isActive ? "opt" : "")}
+        className={({ isActive }) => (isActive ? "opt links" : "links")}
         onClick={() => onChangePath()}
       >
         Favorites

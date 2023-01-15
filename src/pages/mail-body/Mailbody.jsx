@@ -14,7 +14,7 @@ const Mailbody = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const mails =
-    pathname === "/unread-mails" || pathname === "/"
+    pathname === "/"
       ? emails
       : pathname === "/readed-mails"
       ? readedMails

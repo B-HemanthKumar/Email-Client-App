@@ -7,6 +7,7 @@ import {
   setMails,
 } from "../../redux-store/slice/emailSlice";
 import "./Indimailbody.css";
+import Avatar from "../avatar/Avatar";
 
 export default function Indimailbody() {
   const { emailBody, email, readedMails, favEmails, emails } = useSelector(
@@ -23,7 +24,10 @@ export default function Indimailbody() {
   return (
     <>
       <div className="container">
-        <h3>{email.subject}</h3>
+        <div className="flex-indi">
+          <Avatar email={email} />
+          <h3>{email.subject}</h3>
+        </div>
         <div className="dtfav">
           <p>
             {date} {time}
