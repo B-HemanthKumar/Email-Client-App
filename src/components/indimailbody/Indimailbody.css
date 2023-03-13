@@ -23,6 +23,7 @@
 
 .fav1 {
   color: #ffffff;
+  margin-top: 10px;
   background-color: hsl(347, 76%, 57%);
   border: 1px solid #000000;
   border-radius: 100px;
